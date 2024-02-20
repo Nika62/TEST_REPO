@@ -16,4 +16,5 @@ public class UserDto {
     @Size(max = 250, min = 2)
     @NotBlank
     private String name;
+    @NotBlank String fail;
 }
