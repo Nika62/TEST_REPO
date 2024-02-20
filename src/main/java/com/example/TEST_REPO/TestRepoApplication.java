@@ -8,7 +8,7 @@ public class TestRepoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TestRepoApplication.class, args);
-		System.out.println(" hello ");
+		System.out.println(" hello 000");
 	}
 
 }
