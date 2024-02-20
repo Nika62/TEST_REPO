@@ -20,13 +20,14 @@ import lombok.Setter;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long
+            id;
     @Column
     private String email;
     @Column
     private String name;
 
-    public User(long id) {
+    public User    (long id) {
         this.id = id;
     }
 }
