@@ -1,8 +1,0 @@
-name: Tests
-
-on:
-  pull_request:
-
-jobs:
-  build:
-    uses: TEST_REPO/.github/workflows/api-tests.yml@ci
