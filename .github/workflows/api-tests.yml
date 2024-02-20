@@ -5,4 +5,4 @@ on:
 
 jobs:
   build:
-    uses: TEST_REPO/.github/workflows/api-tests.yml@ci
+    uses: com.example/TEST_REPO/.github/workflows/api-tests.yml@ci
