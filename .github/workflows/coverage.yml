@@ -38,3 +38,9 @@ jobs:
       # Publish Coverage Job Summary  # Optional
       - name: Add Coverage Job Summary
         run: echo "${{ steps.jacoco_reporter.outputs.coverageSummary }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Publish report
+        uses: actions/upload-artefact@v3
+        with:
+          name: report
+          path: SampleArtefact
