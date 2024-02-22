@@ -6,7 +6,7 @@ on:
 env:
   SERVER_HOST: 82.146.62.167
   SERVER_USER: grey
-  SERVER_PATH: /war/www/html/TEST_REPO
+  SERVER_PATH: /var/www/html/TEST_REPO
 
 jobs:
 
