@@ -1,5 +1,9 @@
-name: reviewdog
-on: [pull_request]
+name: Style
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
 jobs:
   checkstyle:
     name: runner / checkstyle
