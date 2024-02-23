@@ -1,14 +1,27 @@
-name: Check style
-on: [pull_request]
+name: Check code style
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
 jobs:
-  checkstyle:
-    name: runner / checkstyle
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: dbelyaev/action-checkstyle@master
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
         with:
-          github_token: ${{ secrets.github_token }}
-          reporter: github-pr-review
-          checkstyle_config: ./properties_file/test_checks.xml
-          properties_file: ./properties_file/additional.properties
+          java-version: 1.8
+      - uses: actions/cache@v1
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Build with Maven
+        run: mvn -B verify checkstyle:checkstyle
+      - uses: jwgmeligmeyling/checkstyle-github-action@master
+        with:
+          path: '**/checkstyle-result.xml'
